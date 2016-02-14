@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.sample.domain.repository.lock.PessimisticLock">
+    <select id="findOne" parameterType="Integer" resultType="String">
+    <![CDATA[
+        SELECT
+            col2
+        FROM
+            tbl1 
+        WHERE
+            col1 = #{id}
+        FOR UPDATE NOWAIT
+    ]]>
+    </select>
+</mapper>

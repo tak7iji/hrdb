@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<!--
+	- Default SQL error codes for well-known databases.
+	- Can be overridden by definitions in a "sql-error-codes.xml" file
+	- in the root of the class path.
+	-
+	- If the Database Product Name contains characters that are invalid
+	- to use in the id attribute (like a space) then we need to add a property
+	- named "databaseProductName"/"databaseProductNames" that holds this value.
+	- If this property is present, then it will be used instead of the id for
+	- looking up the error codes based on the current database.
+	-->
+<beans>
+
+	<bean id="HiRDB" class="org.springframework.jdbc.support.SQLErrorCodes">
+		<property name="databaseProductName">
+			<value>HiRDB*</value>
+		</property>
+		<property name="cannotAcquireLockCodes">
+			<value>-770</value>
+		</property>
+	</bean>
+</beans>
