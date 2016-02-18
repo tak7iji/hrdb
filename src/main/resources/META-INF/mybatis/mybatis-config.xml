@@ -20,15 +20,12 @@
     <typeAliases>
         <package name="org.sample.domain.model" />
         <package name="org.sample.domain.repository" />
-<!--
+
         <package name="org.sample.infra.mybatis.typehandler" />
--->
     </typeAliases>
 
     <typeHandlers>
-<!--
         <package name="org.sample.infra.mybatis.typehandler" />
--->
     </typeHandlers>
 
 </configuration>

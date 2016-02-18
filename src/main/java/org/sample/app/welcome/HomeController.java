@@ -45,7 +45,9 @@ public class HomeController {
         	return "common/error/pessimistic";
         }
 
+        long id = findData.findId();
         model.addAttribute("serverTime", formattedDate);
+        model.addAttribute("id", id);
 
         return "welcome/home";
     }

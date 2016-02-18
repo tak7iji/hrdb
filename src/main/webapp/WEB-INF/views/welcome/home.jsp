@@ -9,7 +9,7 @@
 <body>
     <div id="wrapper">
         <h1>Hello world!</h1>
-        <p>The time on the server is ${serverTime}.</p>
+        <p>The time on the server is ${serverTime}.${id}</p>
     </div>
 </body>
 </html>
