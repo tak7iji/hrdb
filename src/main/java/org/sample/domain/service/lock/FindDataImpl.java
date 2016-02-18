@@ -1,11 +1,15 @@
 package org.sample.domain.service.lock;
 
+import java.util.Arrays;
+
 import javax.inject.Inject;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.sample.domain.model.DateTimeCriteria;
+import org.sample.domain.model.MultipleInsertBag;
 import org.sample.domain.repository.lock.DateTimeChecker;
+import org.sample.domain.repository.lock.MultipleInsert;
 import org.sample.domain.repository.lock.PessimisticLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +28,9 @@ public class FindDataImpl implements FindData {
 	@Inject
 	DateTimeChecker checker;
 	
+	@Inject
+	MultipleInsert multi;
+	
 	@Override
 	public String findOne(Integer id) {
 		return pessimisticLock.findOne(id);
@@ -39,4 +46,18 @@ public class FindDataImpl implements FindData {
 		return checker.findId(criteria);
 	}
 
+	@Override
+	public void insertAll() {
+		MultipleInsertBag bag1 = new MultipleInsertBag();
+		MultipleInsertBag bag2 = new MultipleInsertBag();
+		
+		bag1.setId(1);
+		bag1.setMemo("memo1");
+		
+		bag2.setId(2);
+		bag2.setMemo("memo2");
+		multi.insertAll(Arrays.asList(bag1, bag2));
+	}
+
+	
 }

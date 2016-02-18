@@ -6,6 +6,10 @@
     insert into tbl2 values(1, '2016-02-18 10:10:00.0');
     insert into tbl2 values(2, '2016-02-18 10:10:00.1');
     insert into tbl2 values(3, '2016-02-18 10:10:00.2');
+    
+    create table dummy ( col1 char(1));
+    insert into dummy values('1');
+    create table tbl3 (id int, memo char(10));
 
 ## pdsql
     set auto commit off;

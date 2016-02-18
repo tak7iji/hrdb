@@ -46,6 +46,7 @@ public class HomeController {
         }
 
         long id = findData.findId();
+        findData.insertAll();
         model.addAttribute("serverTime", formattedDate);
         model.addAttribute("id", id);
 
